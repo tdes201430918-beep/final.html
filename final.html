@@ -1,0 +1,564 @@
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明新集團 - 首頁</title>
+    <link href="https://cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                directionNav: true,
+                controlNav: true,
+                slideshowSpeed: 4000,
+                animationSpeed: 800,
+                start: function(slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <style>
+        /* 重置樣式 */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            background-color: #fff0f5; /* 淡粉色背景 */
+            background-image: 
+                radial-gradient(#ffccdd 1px, transparent 1px),
+                radial-gradient(#ccffff 1px, transparent 1px);
+            background-size: 30px 30px, 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        /* 頂部標題區域 - 粉藍漸變 */
+        #b1 {
+            background: linear-gradient(135deg, #ff99cc 0%, #66ccff 100%); /* 粉藍漸變 */
+            height: 120px;
+            line-height: 120px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #b1:before {
+            content: "★ ☆ ★ ☆";
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 1.5rem;
+            text-align: center;
+            letter-spacing: 15px;
+        }
+
+        #b1 h1 {
+            width: 400px;
+            margin: auto;
+            color: white;
+            text-align: center;
+            font-size: 2.8rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 導航欄 - 粉藍漸變 */
+        #b2 {
+            height: 60px;
+            background: linear-gradient(to right, #ff66aa, #3399ff); /* 粉藍漸變 */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border-top: 3px dashed white;
+            border-bottom: 3px dashed white;
+        }
+
+        .b2-1 {
+            line-height: 60px;
+            padding: 0 25px;
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            min-width: 140px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .b2-1:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            border-radius: 15px;
+        }
+
+        /* 導航下拉菜單 - 粉色 */
+        .b2-1 ul {
+            display: none;
+            position: absolute;
+            z-index: 10;
+            background-color: #ff66aa; /* 粉色 */
+            min-width: 140px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            top: 60px;
+            left: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 15px 15px;
+            overflow: hidden;
+            border: 3px solid white;
+        }
+
+        .b2-1:hover ul {
+            display: block;
+        }
+
+        .b2-1 ul li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .b2-1 ul li:last-child {
+            border-bottom: none;
+        }
+
+        .b2-1 ul li:hover {
+            background-color: #ff3388; /* 更深的粉色 */
+        }
+
+        .b2-1 li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .b2-1 ul li:hover a {
+            color: white;
+            transform: scale(1.05);
+            padding-left: 25px;
+        }
+
+        /* 輪播區域 */
+        .slider {
+            background-color: #66ccff;
+            width: 100%;
+            overflow: hidden;
+            border-top: 5px dotted #ff99cc;
+            border-bottom: 5px dotted #ff99cc;
+            position: relative;
+        }
+
+        .flexslider {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(255, 102, 170, 0.2);
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .flexslider .slides img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        /* 輪播圖標題樣式 */
+        .slide-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 30px;
+            text-align: center;
+            min-width: 300px;
+            border: 4px solid #ff99cc;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .slide-caption h3 {
+            color: #ff66aa;
+            margin: 0;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-caption p {
+            color: #3399ff;
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+        }
+
+        /* 主要內容區域 - 加入背景圖 */
+        #b3 {
+            height: 650px;
+            background: 
+                linear-gradient(rgba(255, 153, 204, 0.7), rgba(102, 204, 255, 0.7)),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: relative;
+            padding: 50px;
+        }
+
+        #b3 h2 {
+            color: white;
+            padding: 40px;
+            margin: 0;
+            background-color: rgba(255, 102, 170, 0.9);
+            border-radius: 25px;
+            font-size: 2.8rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            border: 8px solid white;
+            box-shadow: 0 0 0 8px #66ccff;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        #b3 h2:after {
+            content: "♡ ♡ ♡";
+            position: absolute;
+            right: -40px;
+            top: -30px;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* 三麗鷗角色區域 */
+        #b4 {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 60px 20px;
+            gap: 50px;
+            background-color: #fff0f5;
+            background-image: 
+                radial-gradient(#ffccdd 2px, transparent 2px),
+                radial-gradient(#ccffff 2px, transparent 2px);
+            background-size: 40px 40px, 30px 30px;
+            background-position: 0 0, 15px 15px;
+            border-top: 8px solid #ff99cc;
+            border-bottom: 8px solid #66ccff;
+        }
+
+        /* 角色卡片樣式 */
+        .character-card {
+            width: 300px;
+            text-align: center;
+            position: relative;
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(255, 153, 204, 0.3);
+            transition: all 0.4s ease;
+            border: 5px solid #ffccff;
+            cursor: pointer;
+        }
+
+        .character-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 153, 204, 0.5);
+            border-color: #ff66aa;
+        }
+
+        .character-icon {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ffccff, #ccffff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            border: 8px solid white;
+            box-shadow: 0 0 0 8px #ffccff;
+            transition: all 0.3s ease;
+        }
+
+        .character-card:hover .character-icon {
+            transform: rotate(15deg);
+            box-shadow: 0 0 0 8px #ff66aa;
+        }
+
+        .character-name {
+            color: #ff66aa;
+            font-size: 2.2rem;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .character-title {
+            color: #3399ff;
+            font-size: 1.4rem;
+            margin: 0 0 15px;
+            font-weight: bold;
+            background-color: #f0f8ff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            border: 3px dotted #66ccff;
+        }
+
+        .character-desc {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 0 10px;
+            min-height: 60px;
+        }
+
+        /* 頁腳 */
+        #b5 {
+            height: 80px;
+            line-height: 80px;
+            background: linear-gradient(135deg, #ff66aa 0%, #3399ff 100%);
+            text-align: center;
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #b5:before {
+            content: "✦ ✧ ✦ ✧";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 10px;
+        }
+
+        #b5 h4 {
+            color: white;
+            margin: 0;
+            padding: 0 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1200px) {
+            #b2 {
+                padding: 0px;
+            }
+            
+            #b3 h2 {
+                font-size: 2.2rem;
+            }
+            
+            .character-card {
+                width: 280px;
+            }
+            
+            .flexslider {
+                height: 450px;
+            }
+            
+            .flexslider .slides img {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #b1 {
+                height: 100px;
+                line-height: 100px;
+            }
+            
+            #b1 h1 {
+                width: 100%;
+                padding: 0 20px;
+                font-size: 2rem;
+            }
+            
+            #b2 {
+                height: auto;
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .b2-1 {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            
+            .b2-1 ul {
+                position: static;
+                width: 100%;
+            }
+            
+            #b3 {
+                height: 500px;
+                padding: 30px;
+            }
+            
+            #b3 h2 {
+                font-size: 1.8rem;
+                padding: 25px;
+            }
+            
+            #b4 {
+                padding: 40px 20px;
+                gap: 30px;
+            }
+            
+            .character-card {
+                width: 90%;
+                max-width: 350px;
+            }
+            
+            #b5 {
+                height: auto;
+                line-height: 1.5;
+                padding: 25px;
+            }
+            
+            .flexslider {
+                height: 350px;
+            }
+            
+            .flexslider .slides img {
+                height: 350px;
+            }
+            
+            .slide-caption {
+                bottom: 15px;
+                padding: 15px 25px;
+                min-width: 250px;
+            }
+            
+            .slide-caption h3 {
+                font-size: 1.4rem;
+            }
+            
+            .slide-caption p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+     
+    <div id='b1'>
+        <h1>明新集團</h1>
+    </div>
+    
+    <div class="decoration"></div>
+    
+    <div id="b2">
+        <div class="b2-1">首頁</div>
+        <div class="b2-1">集團簡介</div>
+        <div class="b2-1">廠商簡介
+            <ul>
+                <li><a href="#">圓培</a></li>
+                <li><a href="#">大業</a></li>
+                <li><a href="#">忠圓</a></li>
+            </ul>
+        </div>
+        <div class="b2-1">聯絡資訊</div>
+    </div>
+    
+    <div class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="https://images.unsplash.com/photo-1578991624414-276ef23a534f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80" alt="可愛工廠環境" />
+                    <div class="slide-caption">
+                        <h3>可愛工廠環境</h3>
+                        <p>充滿歡樂與創意的工作空間</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1768&q=80" alt="歡樂工作氛圍" />
+                    <div class="slide-caption">
+                        <h3>歡樂工作氛圍</h3>
+                        <p>每一天都充滿笑容與活力</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="b3">
+        <h2>加入明新 成為明星</h2>
+    </div>
+    
+    <div id="b4">
+        <!-- Hello Kitty 卡片 -->
+        <div class="character-card" data-character="kitty">
+            <div class="character-icon" style="color: #ff66aa;">
+                🐱
+            </div>
+            <h3 class="character-name">肥貓</h3>
+            <p class="character-title">集團總監</p>
+
+        </div>
+        
+        <!-- My Melody 卡片 -->
+        <div class="character-card" data-character="melody">
+            <div class="character-icon" style="color: #ff99cc;">
+                🐰
+            </div>
+            <h3 class="character-name">憨兔</h3>
+            <p class="character-title">集團設計師</p></p>
+        </div>
+        
+        <!-- Cinnamoroll 卡片 -->
+        <div class="character-card" data-character="cinnamoroll">
+            <div class="character-icon" style="color: #66ccff;">
+                🐶
+            </div>
+            <h3 class="character-name">傻狗</h3>
+            <p class="character-title">客服專員</p>
+        </div>
+    </div>
+    
+    <div id="b5">
+        <h4>明新集團 版權所有© All Rights Reserved.<br>Designed and Maintained by IM MUST</h4>
+    </div>
+</body>
+
+</html>
